@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="project" style="flex-direction: row; background-color: rgb(241, 241, 241); margin-left: 2%; margin-right: 2%; padding-left: 1%; padding-right: 1%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; padding-top: 6px; padding-bottom: 2px; margin-top: 1%; margin-bottom: 0;">
+        <ui:Label text="name" display-tooltip-when-elided="true" name="name" enable-rich-text="true" style="font-size: 36px; -unity-text-align: upper-left; white-space: nowrap; flex-grow: 0; flex-shrink: 0; border-left-width: 10px; border-right-width: 10px; border-top-width: 0; border-bottom-width: 0;" />
+        <ui:GroupBox style="flex-direction: column;">
+            <ui:Label text="Public" display-tooltip-when-elided="true" name="type" style="font-size: 20px; margin-top: 0; padding-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-bottom: 0;" />
+            <ui:Label display-tooltip-when-elided="true" name="description" style="font-size: 30px;" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>
