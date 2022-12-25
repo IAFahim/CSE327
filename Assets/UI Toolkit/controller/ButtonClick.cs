@@ -51,6 +51,7 @@ namespace UI_Toolkit.controller
             {
                 button.clickable.clicked += _buttonActionDictionary[button];
             }
+            SetUpCamera();
         }
 
         private void Update()
@@ -135,7 +136,6 @@ namespace UI_Toolkit.controller
 
         private async void Scan()
         {
-            SetUpCamera();
             try
             {
                 IBarcodeReader barcodeReader = new BarcodeReader();
@@ -145,6 +145,7 @@ namespace UI_Toolkit.controller
                 {
                     textOut.text = result.Text;
                     create_by = result.Text;
+                    DisableCam();
                 }
                 else
                 {
@@ -181,24 +182,17 @@ namespace UI_Toolkit.controller
                 }
             }
             
-            ToggleCamView();
+            _isCamAvaible = true;
+            _cameraTexture.Play();
+            rawImageBackground.texture = _cameraTexture;
         }
 
-        private void ToggleCamView()
+        private void DisableCam()
         {
-            _canvas.gameObject.SetActive(!_canvas.gameObject.activeSelf);
-            if (_canvas.gameObject.activeSelf)
-            {
-                _isCamAvaible = true;
-                _cameraTexture.Play();
-                rawImageBackground.texture = _cameraTexture;
-            }
-            else
-            {
-                _isCamAvaible = false;
-                _cameraTexture.Stop();
-                rawImageBackground.texture=null;
-            }
+            _isCamAvaible = false;
+            _cameraTexture.Stop();
+            rawImageBackground.texture = null;
+            _canvas.gameObject.SetActive(false);
         }
     }
     
